@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"
+    />
+    <title>Subway Surfers Clone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="ui-container">
+      <!-- Loading Screen -->
+      <div id="loading">
+        <div id="loading-text">LOADING...</div>
+      </div>
+
+      <!-- Main Menu -->
+      <div id="main-menu" class="hidden">
+        <div id="game-logo">SUBWAY RUSH</div>
+        <div id="subtitle">Endless Runner</div>
+        <div id="high-score-display">HIGH SCORE: 0</div>
+        <div
+          id="total-coins-display"
+          style="
+            font-family: &quot;Bangers&quot;, cursive;
+            font-size: 24px;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0 #000;
+          "
+        >
+          💰 Total Coins: <span id="total-coins">0</span>
+        </div>
+        <button id="play-btn" class="ui-element">TAP TO PLAY</button>
+        <button id="store-btn" class="ui-element">STORE</button>
+        <div id="controls-hint">
+          <span>←</span> <span>→</span> Lane Change &nbsp;&nbsp;
+          <span>↑</span> Jump &nbsp;&nbsp; <span>↓</span> Slide<br />
+          Or swipe on mobile!
+        </div>
+      </div>
+
+      <!-- HUD -->
+      <div id="hud" class="hidden">
+        <button id="pause-btn" class="ui-element">❚❚</button>
+        <div id="score-container">
+          <div id="multiplier">x1</div>
+          <div id="score">0</div>
+          <div id="coins-display">
+            <div class="coin-icon"></div>
+            <div id="coins">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Power-ups HUD -->
+      <div id="powerups-hud" class="hidden">
+        <div id="magnet-icon" class="powerup-icon">
+          🧲
+          <div class="powerup-timer" id="magnet-timer"></div>
+        </div>
+        <div id="jetpack-icon" class="powerup-icon">
+          🚀
+          <div class="powerup-timer" id="jetpack-timer"></div>
+        </div>
+        <div id="sneakers-icon" class="powerup-icon">
+          👟
+          <div class="powerup-timer" id="sneakers-timer"></div>
+        </div>
+      </div>
+
+      <!-- Tutorial -->
+      <div id="tutorial">Swipe or use Arrow Keys to move!</div>
+
+      <!-- Character Notification -->
+      <div id="character-notification"></div>
+
+      <!-- Pause Screen -->
+      <div id="pause-screen">
+        <div id="pause-panel">
+          <div id="pause-title">PAUSED</div>
+          <button id="resume-btn" class="ui-element">RESUME</button>
+        </div>
+      </div>
+
+      <!-- Game Over Screen -->
+      <div id="game-over">
+        <div id="game-over-panel">
+          <div id="game-over-title">GAME OVER</div>
+          <div id="new-record">🏆 NEW HIGH SCORE!</div>
+          <div class="stat-row">
+            <span class="stat-label">SCORE</span>
+            <span class="stat-value" id="final-score">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">COINS</span>
+            <span class="stat-value" id="final-coins">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">DISTANCE</span>
+            <span class="stat-value" id="final-distance">0m</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">BEST</span>
+            <span class="stat-value" id="best-score">0</span>
+          </div>
+          <div id="game-over-buttons">
+            <button id="retry-btn" class="game-over-btn ui-element">
+              PLAY AGAIN
+            </button>
+            <button id="menu-btn" class="game-over-btn ui-element">MENU</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Store Screen -->
+      <div id="store-screen">
+        <button id="close-store-btn" class="ui-element">✕</button>
+        <div id="store-container">
+          <div id="store-header">
+            <div id="store-title">STORE</div>
+            <div id="store-balance">
+              <div class="store-coin-icon"></div>
+              <span id="store-coins">0</span>
+            </div>
+          </div>
+
+          <div class="store-section">
+            <div class="section-title">CHARACTERS</div>
+            <div class="store-grid" id="characters-grid">
+              <!-- Characters will be added dynamically -->
+            </div>
+          </div>
+
+          <div class="store-section">
+            <div class="section-title">POWER-UPS (Single Use)</div>
+            <div class="store-grid" id="powerups-grid">
+              <!-- Power-ups will be added dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
